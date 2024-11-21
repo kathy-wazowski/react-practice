@@ -13,6 +13,7 @@ const globalQuerySetting = {
       cacheTime: 300_000, //5m. if a query in 5 min does't used, will be removed from cache after 5 mins
       staleTime: 10 * 1000, // 10s
       refetchOnWindowFocus: false,
+      refetchOnReconnect: true,
     }
   }
 }
