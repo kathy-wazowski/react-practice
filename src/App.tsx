@@ -1,12 +1,16 @@
-import './App.css';
-import PostList from './react-query/PostList';
-import TodoList from './react-query/TodoList';
+import "./App.css";
+import PostList from "./react-query/PostList";
+import PostPagination from "./react-query/PostPagination";
+import TodoList from "./react-query/TodoList";
 
 function App() {
-  return <>
-  <PostList />
-  {/* <TodoList /> */}
-  </>
+  return (
+    <>
+      <PostPagination />
+      {/* <PostList /> */}
+      {/* <TodoList /> */}
+    </>
+  );
 }
 
 export default App;
