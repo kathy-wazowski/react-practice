@@ -2,6 +2,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Todo } from "./useTodos";
 import axios from "axios";
 import { CACHE_KEY_TODOS } from "../constants";
+import APIClient from "../services/apiClient";
+
+const apiClient = new APIClient<Todo>("/todos");
 
 interface AddTodoContext {
   previousTodos: Todo[];
@@ -11,6 +14,7 @@ const useAddTodo = (onAdd: () => void) => {
   const queryClient = useQueryClient(); //拿到在main.tsx 中定义的 queryClient
   //第一个Todo 是服务器返回的数据类型，第二个Todo是发送给服务器的数据类型
   return useMutation<Todo, Error, Todo, AddTodoContext>({
+    mutationFn: apiClient.post,
     onMutate: (newTodo: Todo) => {
       const previousTodos =
         queryClient.getQueryData<Todo[]>(CACHE_KEY_TODOS) || [];
@@ -22,10 +26,6 @@ const useAddTodo = (onAdd: () => void) => {
 
       return { previousTodos };
     },
-    mutationFn: (todo: Todo) =>
-      axios
-        .post<Todo>("https://jsonplaceholder.typicode.com/todos", todo)
-        .then((res) => res.data),
     onSuccess: (savedTodo, newTodo) => {
       // savedTodo 是服务器返回的todo
       // newTodo 是 mutationFn 中传入的todo
@@ -44,11 +44,6 @@ const useAddTodo = (onAdd: () => void) => {
           // 原视频这里不对，上面的console全是false
           return todo.title === newTodo.title ? savedTodo : todo;
         })
-      );
-      console.log(savedTodo, "savedTodo");
-      console.log(
-        queryClient.getQueryData<Todo[]>(CACHE_KEY_TODOS),
-        "queryClient.getQueryData"
       );
     },
     onError: (error, newTodo, context) => {
