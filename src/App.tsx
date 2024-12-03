@@ -4,6 +4,7 @@ import PostList from "./react-query/PostList";
 import PostPagination from "./react-query/PostPagination";
 import TodoForm from "./react-query/TodoForm";
 import TodoList from "./react-query/TodoList";
+import Counter from "./state-management/Counter";
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       {/* <InfiniteQueries /> */}
       {/* <PostPagination /> */}
       {/* <PostList /> */}
-      <TodoForm />
-      <TodoList />
+      {/* <TodoForm />
+      <TodoList /> */}
+      <Counter />
     </>
   );
 }
