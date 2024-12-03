@@ -7,13 +7,11 @@ import TodoForm from "./react-query/TodoForm";
 import TodoList from "./react-query/TodoList";
 import Counter from "./state-management/Counter";
 import LoginStatus from "./state-management/LoginStatus";
-import TaskList from "./state-management/TaskList";
-import taskReducer from "./state-management/reducers/taskReducer";
 import NavBar from "./state-management/NavBar";
-import TasksContext from "./state-management/contexts/tasksContext";
+import TasksContext from "./state-management/tasks/tasksContext";
 import HomePage from "./state-management/HomePage";
 import AuthProvider from "./state-management/AuthProvider";
-import TasksProvider from "./state-management/TasksProvider";
+import { TasksProvider } from "./state-management/tasks";
 
 function App() {
   return (
