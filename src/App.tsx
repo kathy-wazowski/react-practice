@@ -12,22 +12,27 @@ import taskReducer from "./state-management/reducers/taskReducer";
 import NavBar from "./state-management/NavBar";
 import TasksContext from "./state-management/contexts/tasksContext";
 import HomePage from "./state-management/HomePage";
+import loginReducer from "./state-management/reducers/loginReducer";
+import AuthContext from "./state-management/contexts/authContext";
 
 function App() {
-  const [tasks, dispatch] = useReducer(taskReducer, []);
+  const [tasks, tasksDispatch] = useReducer(taskReducer, []);
+  const [user, authDispatch] = useReducer(loginReducer, "");
   return (
-    <TasksContext.Provider value={{ tasks, dispatch }}>
-      {/* <InfiniteQueries /> */}
-      {/* <PostPagination /> */}
-      {/* <PostList /> */}
-      {/* <TodoForm />
+    <AuthContext.Provider value={{ user, dispatch: authDispatch }}>
+      <TasksContext.Provider value={{ tasks, dispatch: tasksDispatch }}>
+        {/* <InfiniteQueries /> */}
+        {/* <PostPagination /> */}
+        {/* <PostList /> */}
+        {/* <TodoForm />
       <TodoList /> */}
-      {/* <Counter /> */}
-      {/* <TaskList /> */}
-      {/* <LoginStatus /> */}
-      <NavBar />
-      <HomePage />
-    </TasksContext.Provider>
+        {/* <Counter /> */}
+        {/* <TaskList /> */}
+        {/* <LoginStatus /> */}
+        <NavBar />
+        <HomePage />
+      </TasksContext.Provider>
+    </AuthContext.Provider>
   );
 }
 
