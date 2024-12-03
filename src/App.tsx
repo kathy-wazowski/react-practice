@@ -12,14 +12,13 @@ import taskReducer from "./state-management/reducers/taskReducer";
 import NavBar from "./state-management/NavBar";
 import TasksContext from "./state-management/contexts/tasksContext";
 import HomePage from "./state-management/HomePage";
-import loginReducer from "./state-management/reducers/loginReducer";
-import AuthContext from "./state-management/contexts/authContext";
+import AuthProvider from "./state-management/AuthProvider";
 
 function App() {
   const [tasks, tasksDispatch] = useReducer(taskReducer, []);
-  const [user, authDispatch] = useReducer(loginReducer, "");
+
   return (
-    <AuthContext.Provider value={{ user, dispatch: authDispatch }}>
+    <AuthProvider>
       <TasksContext.Provider value={{ tasks, dispatch: tasksDispatch }}>
         {/* <InfiniteQueries /> */}
         {/* <PostPagination /> */}
@@ -32,7 +31,7 @@ function App() {
         <NavBar />
         <HomePage />
       </TasksContext.Provider>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 
