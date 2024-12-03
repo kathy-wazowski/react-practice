@@ -13,13 +13,12 @@ import NavBar from "./state-management/NavBar";
 import TasksContext from "./state-management/contexts/tasksContext";
 import HomePage from "./state-management/HomePage";
 import AuthProvider from "./state-management/AuthProvider";
+import TasksProvider from "./state-management/TasksProvider";
 
 function App() {
-  const [tasks, tasksDispatch] = useReducer(taskReducer, []);
-
   return (
     <AuthProvider>
-      <TasksContext.Provider value={{ tasks, dispatch: tasksDispatch }}>
+      <TasksProvider>
         {/* <InfiniteQueries /> */}
         {/* <PostPagination /> */}
         {/* <PostList /> */}
@@ -30,7 +29,7 @@ function App() {
         {/* <LoginStatus /> */}
         <NavBar />
         <HomePage />
-      </TasksContext.Provider>
+      </TasksProvider>
     </AuthProvider>
   );
 }
