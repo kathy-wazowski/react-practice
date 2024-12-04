@@ -5,12 +5,12 @@ import PostList from "./react-query/PostList";
 import PostPagination from "./react-query/PostPagination";
 import TodoForm from "./react-query/TodoForm";
 import TodoList from "./react-query/TodoList";
-import Counter from "./state-management/Counter";
-import LoginStatus from "./state-management/LoginStatus";
+import Counter from "./state-management/counter/Counter";
+import LoginStatus from "./state-management/auth/LoginStatus";
 import NavBar from "./state-management/NavBar";
 import TasksContext from "./state-management/tasks/tasksContext";
 import HomePage from "./state-management/HomePage";
-import AuthProvider from "./state-management/AuthProvider";
+import AuthProvider from "./state-management/auth/AuthProvider";
 import { TasksProvider } from "./state-management/tasks";
 
 function App() {
