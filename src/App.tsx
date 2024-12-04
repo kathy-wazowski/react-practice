@@ -22,7 +22,7 @@ function App() {
         {/* <PostList /> */}
         {/* <TodoForm />
       <TodoList /> */}
-        {/* <Counter /> */}
+        <Counter />
         {/* <TaskList /> */}
         {/* <LoginStatus /> */}
         <NavBar />
