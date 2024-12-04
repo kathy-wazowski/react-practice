@@ -2,7 +2,8 @@ import LoginStatus from "./auth/LoginStatus";
 import useCounterStore from "./counter/store";
 
 const NavBar = () => {
-  const { counter } = useCounterStore();
+  const counter = useCounterStore((s) => s.counter);
+  console.log("enter nav bar");
   return (
     <nav className="navbar d-flex justify-content-between">
       <span className="badge text-bg-secondary">{counter}</span>
