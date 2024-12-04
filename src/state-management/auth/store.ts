@@ -7,7 +7,6 @@ interface UserStore {
 }
 const useUserStore = create<UserStore>((set) => ({
   user: "",
-  max: 5,
   logIn: (userName: string) => set(() => ({ user: userName })),
   logOut: () => set({ user: "" }),
 }));
